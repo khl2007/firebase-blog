@@ -1,0 +1,8 @@
+{
+  "name": "microtraining",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

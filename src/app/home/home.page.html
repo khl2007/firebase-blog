@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/new-task']">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Tasks List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="blogs" class="list-mini-content" padding>
+  <div *ngIf="blogs.length > 0" class="list-mini">
+   
+	<ion-card *ngFor="let blog of blogs" [routerLink]="['/details', blog.payload.doc.id]">
+		<ion-card-header>
+			  <ion-img [src]="blog.payload.doc.data().imgurl"></ion-img>
+		</ion-card-header>
+
+		  <ion-card-content>
+		  {{blog.payload.doc.data().body}}
+		  </ion-card-content>
+</ion-card>
+  </div>
+  <div *ngIf="blogs.length == 0" class="empty-list">
+    Please create your first task.
+  </div>
+</ion-content>
+<ion-footer (click)="logout()">
+  <ion-toolbar color="medium">
+    <ion-title>Log out</ion-title>
+  </ion-toolbar>
+</ion-footer>
